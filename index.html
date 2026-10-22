@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SOUT | صوت</title>
+<meta name="theme-color" content="#0b0f0c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg"></div>
+<header class="glass top">
+  <h1>SOUT <span>| صوت</span></h1>
+  <div class="row">
+    <button id="btnLang" class="chip" title="Language">EN</button>
+    <button id="btnTheme" class="chip" title="Theme">◐</button>
+  </div>
+</header>
+
+<main>
+  <div id="notice" class="notice" hidden></div>
+  <div id="restore" class="notice ok" hidden>
+    <span data-i="restoreMsg"></span>
+    <button id="btnRestore" class="chip" data-i="restore"></button>
+    <button id="btnDiscard" class="chip" data-i="discard"></button>
+  </div>
+
+  <section class="glass panel">
+    <div class="row wrap">
+      <label><span data-i="lang"></span>
+        <select id="selLang">
+          <option value="ar-SA">العربية الفصحى</option>
+          <option value="ar-EG">العربية المصرية</option>
+          <option value="en-US">English (US)</option>
+          <option value="en-GB">English (UK)</option>
+          <option value="fr-FR">Français</option>
+          <option value="tr-TR">Türkçe</option>
+          <option value="es-ES">Español</option>
+          <option value="de-DE">Deutsch</option>
+        </select>
+      </label>
+      <label class="chk"><input type="checkbox" id="chkAudio"> <span data-i="saveAudio"></span></label>
+    </div>
+    <p class="hint" data-i="langHint"></p>
+    <input id="sessionName" class="input" data-ph="sessionName">
+  </section>
+
+  <section class="glass panel rec">
+    <canvas id="wave" width="300" height="40"></canvas>
+    <div class="row center">
+      <button id="btnPause" class="round sm" disabled title="Pause">⏸</button>
+      <button id="btnRec" class="round big" title="Record"><span class="dot"></span></button>
+      <button id="btnStop" class="round sm stop" disabled title="Stop">■</button>
+    </div>
+    <div class="status"><span id="micDot" class="led"></span><span id="status" data-i="idle"></span> · <span id="timer">00:00</span></div>
+  </section>
+
+  <section class="glass panel">
+    <div class="row wrap">
+      <label><span data-i="speaker"></span>
+        <select id="selSpeaker"></select>
+      </label>
+      <button id="btnRename" class="chip" data-i="rename"></button>
+      <input id="search" class="input grow" type="search" data-ph="search">
+    </div>
+    <div id="transcript" class="transcript" aria-live="polite"></div>
+    <div id="interim" class="interim"></div>
+    <div class="row wrap between">
+      <small id="counts"></small>
+      <small class="hint" data-i="unsureHint"></small>
+    </div>
+  </section>
+
+  <section class="glass panel">
+    <div class="row wrap">
+      <button id="btnCopy" class="chip" data-i="copyAll"></button>
+      <button id="btnCopySel" class="chip" data-i="copySel"></button>
+      <button id="btnSelAll" class="chip" data-i="selAll"></button>
+      <button id="btnTxt" class="chip">TXT</button>
+      <button id="btnMd" class="chip">MD</button>
+      <button id="btnAudio" class="chip" hidden data-i="dlAudio"></button>
+    </div>
+    <div class="row wrap">
+      <button id="btnShare" class="chip accent" data-i="share"></button>
+      <button id="btnWa" class="chip accent">WhatsApp</button>
+      <button id="btnIg" class="chip accent">Instagram</button>
+    </div>
+    <p id="shareNote" class="hint"></p>
+  </section>
+</main>
+
+<nav class="glass bottom">
+  <button id="btnNew" data-i="new"></button>
+  <button id="btnSessions" data-i="sessions"></button>
+  <button id="btnClear" data-i="clear"></button>
+  <button id="btnPrivacy" data-i="privacy"></button>
+</nav>
+
+<dialog id="dlgSessions" class="glass dlg"><h2 data-i="sessions"></h2><div id="sessList"></div><button class="chip" data-close data-i="close"></button></dialog>
+<dialog id="dlgPrivacy" class="glass dlg"><h2 data-i="privacy"></h2><p data-i="privacyText"></p><button class="chip" data-close data-i="close"></button></dialog>
+<div id="toast" class="toast" hidden></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

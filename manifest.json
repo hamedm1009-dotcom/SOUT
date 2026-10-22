@@ -1,0 +1,17 @@
+{
+  "name": "SOUT | صوت",
+  "short_name": "SOUT",
+  "description": "تفريغ صوتي مباشر للبودكاست والمقابلات والاجتماعات",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
+  "background_color": "#0b0f0c",
+  "theme_color": "#0b0f0c",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
